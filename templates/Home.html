@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foody Show</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylehome.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Assets/klipartz.png') }}" alt="Foody Show Logo">
+            <p>Mia's Kiosk</p>
+        </div>
+        <ul class="nav-links">
+            <button class="close-btn" id="close-btn">
+                <i class="fa-solid fa-xmark"></i>  <!-- Close Icon -->
+            </button>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#cart">Cart</a></li>  <!-- Updated Cart Link -->
+        </ul>
+        <div class="user-info">
+            <button>
+                <i class="fa-solid fa-user"></i>
+                <span id="username">{{ username }}</span>  <!-- Updated to use Flask variable -->
+            </button>
+        </div>
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home" class="section">
+        <div class="home-content">
+            <div class="intro">
+                <h1>Welcome to <br>
+                    <span>Mia's Kiosk</span></h1>
+                <p>Experience the best flavors from around the world. A taste you'll never forget!</p>
+            </div>
+    
+            <div class="food-gallery">
+                <img src="{{ url_for('static', filename='Assets/burger.jpg') }}" alt="Delicious Food">
+                <img src="{{ url_for('static', filename='Assets/fries.jpg') }}" alt="Tasty Dish">
+                <img src="{{ url_for('static', filename='Assets/pizzaa.jpg') }}" alt="Sizzling Meal">
+                <img src="{{ url_for('static', filename='Assets/shorma.jpg') }}" alt="Yummy Plate">
+            </div>
+    
+            <br><br>
+            <p style="font-family: 'Pacifico', cursive; font-size: 40px; color: #ffcc00;">
+                "Food is not just a necessity; it's a love language that speaks to the soul with every bite. 🍽️"
+            </p>
+            <br><br>
+    
+            <!-- Why Choose Us -->
+            <h1>Why Choose Us?</h1>
+            <div class="why-choose-us">
+                <div class="feature">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Delicious & Fresh</h3>
+                    <p>We use the finest ingredients to prepare fresh and mouthwatering dishes.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Enjoy quick delivery services right to your doorstep.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-star"></i>
+                    <h3>Highly Rated</h3>
+                    <p>Our customers love us! Rated 4.8/5 for quality and service.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>Affordable Prices</h3>
+                    <p>Get the best taste at the most reasonable prices.</p>
+                </div>
+            </div>
+    
+            <br><br>
+    
+            <!-- Popular Dishes -->
+            <h1 id="faq-heading">Our Popular Dishes</h1>
+            <div class="popular-dishes">
+                <div class="dish">
+                    <img src="{{ url_for('static', filename='Assets/pizzaa.jpg') }}" alt="Pizza">
+                    <h3>Cheesy Pizza</h3>
+                    <p>A classic favorite loaded with cheese and fresh toppings.</p>
+                </div>
+                <div class="dish">
+                    <img src="{{ url_for('static', filename='Assets/burger.jpg') }}" alt="Burger">
+                    <h3>Juicy Burger</h3>
+                    <p>A perfectly grilled patty topped with fresh lettuce and sauces.</p>
+                </div>
+                <div class="dish">
+                    <img src="{{ url_for('static', filename='Assets/fries.jpg') }}" alt="Fries">
+                    <h3>Crispy Fries</h3>
+                    <p>Golden, crunchy fries served with our signature dips.</p>
+                </div>
+                <div class="dish">
+                    <img src="{{ url_for('static', filename='Assets/shorma.jpg') }}" alt="Shawarma">
+                    <h3>Spicy Shawarma</h3>
+                    <p>Middle Eastern delight with perfectly seasoned meat.</p>
+                </div>
+            </div>
+    
+            <br><br>
+    
+            <!-- Customer Reviews -->
+            <h1>What Our Customers Say</h1>
+            <div class="reviews" id="reviews">
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='Assets/customer1.jpg') }}" alt="Reviewer Image" class="review-img">
+                    <p>"Amazing food! Best experience ever!"</p>
+                    <h4>– Sarah M.</h4>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='Assets/customer2.jpg') }}" alt="Reviewer Image" class="review-img">
+                    <p>"Highly recommended! Great taste and quality."</p>
+                    <h4>– John D.</h4>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='Assets/customer3.jpg') }}" alt="Reviewer Image" class="review-img">
+                    <p>"A food paradise! Absolutely loved it."</p>
+                    <h4>– Emily R.</h4>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='Assets/customer4.jpg') }}" alt="Reviewer Image" class="review-img">
+                    <p>"Best service and delicious meals!"</p>
+                    <h4>– Mark T.</h4>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='Assets/customer5.jpg') }}" alt="Michael B." class="review-img">
+                    <p>"Great ambiance and friendly staff. 10/10!"</p>
+                    <strong>— Michael B.</strong>
+                </div>
+            </div>
+    
+            <br><br>
+    
+            <!-- FAQ Section -->
+            <h1 id="faqs-heading">Frequently Asked Questions (FAQ)</h1>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3>➥ What are your operating hours?</h3>
+                    <p>We are open from 10 AM - 11 PM every day.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>➥ Do you offer vegetarian options?</h3>
+                    <p>Yes, we have a variety of vegetarian and vegan-friendly dishes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>➥ Do you provide home delivery?</h3>
+                    <p>Yes! We offer fast and convenient delivery services.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>➥ Can I customize my order?</h3>
+                    <p>Absolutely! Let us know your preferences, and we’ll make it perfect for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <h1>Menu</h1>
+        <div class="menu-container">
+            <!-- Search Bar -->
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search for food..." onkeyup="filterMenu()">
+            
+            <!-- Category Dropdown -->
+            <select id="filter-category" class="filter-select" onchange="filterMenu()">
+                <option value="all">All Categories</option>
+                <option value="Fast Food">Fast Food</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Beverage">Beverage</option>
+            </select>
+            
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menu-grid"></div>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="cart-container" id="cart">
+            <h3>Cart</h3>
+            <ul id="cart-list"></ul>
+            <p>Total: <span id="cart-total">$0.00</span></p>
+            <button class="btn" onclick="checkout()">Checkout <i class="fa-solid fa-shopping-cart"></i></button>
+            <button class="btn remove-btn" onclick="clearCart()">Clear <i class="fa-solid fa-trash"></i></button>
+        </div>
+    </section>
+
+    <div id="complainthead">
+        <h1>Contact & Complaint</h1>
+        <p>We’d love to hear from you! Reach out for inquiries, reservations, or complaints.</p>
+    </div>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>📍 Our Location</h2>
+                <p>123 Foodie Street, Gourmet City, FC-7890</p>
+                <h2>📞 Call Us</h2>
+                <p>+123 456 7890</p>
+                <h2>📧 Email</h2>
+                <p>support@foodyshow.com</p>
+                <h2>⏰ Working Hours</h2>
+                <p>10 AM - 11 PM (Mon-Sun)</p>
+            </div>
+    
+            <!-- Complaint Form -->
+            <div class="complaint-form">
+                <h2>😔 Submit a Complaint</h2>
+                <form id="complaintForm" action="{{ url_for('submit_complaint') }}" method="POST">
+                    <div class="form-group">
+                        <label for="name">👤 Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">📧 Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">✍️ Complaint</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Describe your issue" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Complaint</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo & Description -->
+            <div class="footer-about">
+                <h2>Foody Show</h2>
+                <p>Serving deliciousness with love! Experience flavors that make memories. �️</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">🏠 Home</a></li>
+                    <li><a href="#menu">🍽️ Menu</a></li>
+                    <li><a href="#reviews">⭐ Reviews</a></li>
+                    <li><a href="#contact">📞 Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-phone"></i> +123 456 7890</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@foodyshow.com</p>
+                <p><i class="fa-solid fa-map-marker-alt"></i> Green Street, USA</p>
+            </div>
+        </div>
+
+        <!-- Copyright & Credits -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Foody Show. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

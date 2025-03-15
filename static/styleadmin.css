@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(to right, #014f86, #012a4a);
+    color: #faf9f4;
+    text-align: center;
+    padding: 20px;
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+h1, h2 {
+    color: #fff30a;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+input, button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #fff30a;
+    color: #014f86;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffa500;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+th {
+    background: #014f86;
+    color: white;
+}
+
+/* Complaints Section */
+.complaints-list {
+    margin-top: 20px;
+}
+
+.complaint-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.complaint-card h3 {
+    margin: 0 0 10px;
+    color: #fff30a;
+}
+
+.complaint-card p {
+    margin: 0 0 10px;
+    color: #faf9f4;
+}
+
+.complaint-card small {
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}

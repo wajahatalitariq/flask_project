@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleadmin.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Panel - Manage Inventory</h1>
+        
+        <!-- Add Item Form -->
+        <div class="add-item-form">
+            <h2>Add New Item</h2>
+            <!-- Item Name Input Field -->
+            <input type="text" id="item-name" placeholder="Item Name">
+            
+            <!-- Category Dropdown -->
+            <label for="item-category">Category:</label>
+            <select id="item-category">
+                <option value="Beverage">Beverage</option>
+                <option value="Fast Food">Fast Food</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            
+            <!-- Price Input Field -->
+            <input type="number" id="item-price" placeholder="Price">
+            
+            <!-- Quantity Input Field -->
+            <input type="number" id="item-quantity" placeholder="Quantity">
+            
+            <!-- Image URL Input Field -->
+            <input type="text" id="item-image" placeholder="Image URL">
+            
+            <!-- Add Item Button -->
+            <button onclick="addItem()">Add Item</button>
+        </div>
+        
+        <!-- Inventory List -->
+        <div class="inventory-list">
+            <h2>Inventory</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-table">
+                    <!-- Dynamic content from JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Complaints Section -->
+        <div class="complaints-list">
+            <h2>Customer Complaints</h2>
+            {% if complaints %}
+                {% for complaint in complaints %}
+                    <div class="complaint-card">
+                        <h3>{{ complaint.name }} ({{ complaint.email }})</h3>
+                        <p>{{ complaint.message }}</p>
+                        <small>Submitted at: {{ complaint.submitted_at }}</small>
+                        <form action="{{ url_for('delete_complaint', complaint_id=complaint.id) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="delete-button">Complete</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No complaints found.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
